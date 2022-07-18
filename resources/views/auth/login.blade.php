@@ -15,11 +15,11 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <!-- Email Address -->
+            <!-- Username -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="username" :value="__('Username')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
             </div>
 
             <!-- Password -->
@@ -31,11 +31,12 @@
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
-            <!--Register Link -->
-
-             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                        {{ __('No account? Register here') }}
-             </a>
+             <!-- Forgot Password -->
+             @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
             <!-- Remember Me -->
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
@@ -45,12 +46,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
 
+             <!-- Register Link -->
+             <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                        {{ __('No account? Register here') }}
+             </a>
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
