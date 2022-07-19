@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class EditUserController extends Controller
 {
-    public function destroy($id){
+    public function destroy($id)
+    {
        $user = User::findOrFail($id);
 
        $user->delete();
 
        return redirect('/');
+    }
+
+    public function create()
+    {
+        return view();
     }
 }

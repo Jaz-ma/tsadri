@@ -18,8 +18,8 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('none')">
-                        {{ __('Contact') }}
+                    <x-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                        {{ __('Profile') }}
                     </x-nav-link>
                 </div>
                 <!-- Navigation Links -->
@@ -89,8 +89,8 @@
             </x-responsive-nav-link>
         </div>
          <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('About_us')">
-                {{ __('About us') }}
+            <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                {{ __('Profile') }}
             </x-responsive-nav-link>
         </div>
          <div class="pt-2 pb-3 space-y-1">
