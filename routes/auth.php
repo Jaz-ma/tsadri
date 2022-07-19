@@ -56,7 +56,4 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
-    Route::get('profile',[UserProfileController::class,'create'])->name('profile');
-
-    Route::delete('edit/{user}/delete_user',[EditUserController::class,'destroy'])->name('user.destroy');
-});
+    });

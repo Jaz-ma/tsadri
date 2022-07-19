@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EditUserController extends Controller
 {
@@ -18,8 +19,25 @@ class EditUserController extends Controller
        return redirect('/');
     }
 
-    public function create()
+    public function update(Request $request, $id)
     {
-        return view();
+        $user = User::findOrFail($id);
+        $request->validate([
+
+            "password" => "required",
+            "username" => "required|max:225",
+            "name" => "required|max:225",
+            "email" => "required|email",
+        ]);
+        if(Hash::check($request->password,$user->password))
+        {
+            $user->username = $request->username;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+        }
+
+        return redirect()->route('profile');
     }
+
 }
