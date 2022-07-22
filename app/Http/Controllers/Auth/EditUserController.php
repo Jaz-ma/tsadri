@@ -25,9 +25,9 @@ class EditUserController extends Controller
         $request->validate([
 
             "password" => "required",
-            "username" => "required|max:225",
-            "name" => "required|max:225",
-            "email" => "required|email",
+            "username" => "max:225",
+            "name" => "max:225",
+            "email" => "",
         ]);
         if(Hash::check($request->password,$user->password))
         {

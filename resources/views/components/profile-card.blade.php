@@ -39,14 +39,14 @@
 
                     <x-label for="username" :value="__('Username')" />
 
-                    <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
+                    <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" autofocus />
 
                 </div>
                 <div class="py-4">
 
                     <x-label for="name" :value="__('Name')" />
 
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
                 </div>
                 <div class="py-4">
 
